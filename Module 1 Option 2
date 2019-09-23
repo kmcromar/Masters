@@ -14,13 +14,13 @@ import seaborn as sns
 #Three ways to load files
 #cvs read,
 df=pd.DataFrame({
-    'name':['john','mary','peter','jeff','bill','lisa','jose'],
-    'age':[23,78,22,19,45,33,20],
-    'gender':['M','F','M','F','M','F','M'],
-    'state':['CA','DC','CA','DC','VA','NY','NY'],
-    'num_children':[2,0,0,3,2,1,4],
-    'num_pets':[5,1,0,5,2,2,3]
-]}
+        'name':['john','mary','peter','jeff','bill','lisa','jose'],
+        'age':[23,78,22,19,45,33,20],
+        'gender':['M','F','M','F','M','F','M'],
+        'state':['CA','DC','CA','DC','VA','NY','NY'],
+        'num_children':[2,0,0,3,2,1,4],
+        'num_pets':[5,1,0,5,2,2,3]
+})
 #1 Generate a scatter plot comparing num_children and num_pets
 df.plot(kind='scatter',x='num_children',y='num_pets',color='red')
 plt.show()
@@ -30,7 +30,7 @@ df.plot(kind='bar',x='name',y='age')
 plt.show()
 
 #3 Generate Line plot with multiple columns
-ax=plt.gcs()
+ax=plt.gca()
 df.plot(kind='line',x='name',y='num_children',ax=ax)
 df.plot(kind='line',x='name',y='num_pets',color='red',ax=ax)
 plt.show()
@@ -46,13 +46,13 @@ df.groupby(['gender','state'])['age'].size().unstack().plot(kind='bar',stacked=T
 plt.show()
 
 #6 Generate a violinplot
-fig.ax=plt.subplots()
+fig,ax=plt.subplots()
 ax.violinplot(df['age'],vert=False)
 plt.show()
 
 #7 Generate a Plot of the distribution of the faculty children
 num_bins=10
-plt.hist(df['num_children'],num_bins,normed-1,facecolor='blue'alpha=0.5)
+plt.hist(df['num_children'],num_bins,normed=1,facecolor='blue',alpha=0.5)
 plt.show()
 
 #8 Use Seaborn Library to construct a pet plot
